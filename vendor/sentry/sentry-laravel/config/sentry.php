@@ -29,6 +29,12 @@ return [
     // @see: https://docs.sentry.io/platforms/php/guides/laravel/configuration/options/#send-default-pii
     'send_default_pii' => env('SENTRY_SEND_DEFAULT_PII', false),
 
+    // @see: https://docs.sentry.io/platforms/php/guides/laravel/configuration/options/#ignore-exceptions
+    // 'ignore_exceptions' => [],
+
+    // @see: https://docs.sentry.io/platforms/php/guides/laravel/configuration/options/#ignore-transactions
+    // 'ignore_transactions' => [],
+
     // Breadcrumb specific configuration
     'breadcrumbs' => [
         // Capture Laravel logs as breadcrumbs
@@ -66,6 +72,9 @@ return [
 
         // Capture SQL queries as spans
         'sql_queries' => env('SENTRY_TRACE_SQL_QUERIES_ENABLED', true),
+
+        // Capture SQL query bindings (parameters) in SQL query spans
+        'sql_bindings' => env('SENTRY_TRACE_SQL_BINDINGS_ENABLED', false),
 
         // Capture where the SQL query originated from on the SQL query spans
         'sql_origin' => env('SENTRY_TRACE_SQL_ORIGIN_ENABLED', true),

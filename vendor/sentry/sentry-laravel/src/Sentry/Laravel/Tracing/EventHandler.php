@@ -5,12 +5,10 @@ namespace Sentry\Laravel\Tracing;
 use Exception;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\Events as DatabaseEvents;
-use Illuminate\Http\Client\Events as HttpClientEvents;
 use Illuminate\Routing\Events as RoutingEvents;
 use RuntimeException;
 use Sentry\Laravel\Features\Concerns\ResolvesEventOrigin;
 use Sentry\Laravel\Integration;
-use Sentry\Laravel\Util\WorksWithUris;
 use Sentry\SentrySdk;
 use Sentry\Tracing\Span;
 use Sentry\Tracing\SpanContext;
@@ -19,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EventHandler
 {
-    use WorksWithUris, ResolvesEventOrigin;
+    use ResolvesEventOrigin;
 
     /**
      * Map event handlers to events.
@@ -31,9 +29,6 @@ class EventHandler
         DatabaseEvents\QueryExecuted::class => 'queryExecuted',
         RoutingEvents\ResponsePrepared::class => 'responsePrepared',
         RoutingEvents\PreparingResponse::class => 'responsePreparing',
-        HttpClientEvents\RequestSending::class => 'httpClientRequestSending',
-        HttpClientEvents\ResponseReceived::class => 'httpClientResponseReceived',
-        HttpClientEvents\ConnectionFailed::class => 'httpClientConnectionFailed',
         DatabaseEvents\TransactionBeginning::class => 'transactionBeginning',
         DatabaseEvents\TransactionCommitted::class => 'transactionCommitted',
         DatabaseEvents\TransactionRolledBack::class => 'transactionRolledBack',
@@ -45,6 +40,13 @@ class EventHandler
      * @var bool
      */
     private $traceSqlQueries;
+
+    /**
+     * Indicates if we should add query bindings to query spans.
+     *
+     * @var bool
+     */
+    private $traceSqlBindings;
 
     /**
      * Indicates if we should we add SQL query origin data to query spans.
@@ -68,13 +70,6 @@ class EventHandler
     private $traceQueueJobsAsTransactions;
 
     /**
-     * Indicates if we should trace HTTP client requests.
-     *
-     * @var bool
-     */
-    private $traceHttpClientRequests;
-
-    /**
      * Hold the stack of parent spans that need to be put back on the scope.
      *
      * @var array<int, Span|null>
@@ -94,9 +89,8 @@ class EventHandler
     public function __construct(array $config)
     {
         $this->traceSqlQueries = ($config['sql_queries'] ?? true) === true;
+        $this->traceSqlBindings = ($config['sql_bindings'] ?? true) === true;
         $this->traceSqlQueryOrigins = ($config['sql_origin'] ?? true) === true;
-
-        $this->traceHttpClientRequests = ($config['http_client_requests'] ?? true) === true;
 
         $this->traceQueueJobs = ($config['queue_jobs'] ?? false) === true;
         $this->traceQueueJobsAsTransactions = ($config['queue_job_transactions'] ?? false) === true;
@@ -112,9 +106,6 @@ class EventHandler
      * @uses self::transactionBeginningHandler()
      * @uses self::transactionCommittedHandler()
      * @uses self::transactionRolledBackHandler()
-     * @uses self::httpClientRequestSendingHandler()
-     * @uses self::httpClientResponseReceivedHandler()
-     * @uses self::httpClientConnectionFailedHandler()
      */
     public function subscribe(Dispatcher $dispatcher): void
     {
@@ -183,13 +174,17 @@ class EventHandler
         $context->setStartTimestamp(microtime(true) - $query->time / 1000);
         $context->setEndTimestamp($context->getStartTimestamp() + $query->time / 1000);
 
+        if ($this->traceSqlBindings) {
+            $context->setData(array_merge($context->getData(), [
+                'db.sql.bindings' => $query->bindings
+            ]));
+        }
+
         if ($this->traceSqlQueryOrigins) {
             $queryOrigin = $this->resolveQueryOriginFromBacktrace();
 
             if ($queryOrigin !== null) {
-                $context->setData(array_merge($context->getData(), [
-                    'db.sql.origin' => $queryOrigin
-                ]));
+                $context->setData(array_merge($context->getData(), $queryOrigin));
             }
         }
 
@@ -201,7 +196,7 @@ class EventHandler
      *
      * @return string|null
      */
-    private function resolveQueryOriginFromBacktrace(): ?string
+    private function resolveQueryOriginFromBacktrace(): ?array
     {
         $backtraceHelper = $this->makeBacktraceHelper();
 
@@ -213,7 +208,11 @@ class EventHandler
 
         $filePath = $backtraceHelper->getOriginalViewPathForFrameOfCompiledViewPath($firstAppFrame) ?? $firstAppFrame->getFile();
 
-        return "{$filePath}:{$firstAppFrame->getLine()}";
+        return [
+            'code.filepath' => $filePath,
+            'code.function' => $firstAppFrame->getFunctionName(),
+            'code.lineno' => $firstAppFrame->getLine(),
+        ];
     }
 
     protected function responsePreparedHandler(RoutingEvents\ResponsePrepared $event): void
@@ -274,64 +273,6 @@ class EventHandler
 
     protected function transactionRolledBackHandler(DatabaseEvents\TransactionRolledBack $event): void
     {
-        $span = $this->popSpan();
-
-        if ($span !== null) {
-            $span->finish();
-            $span->setStatus(SpanStatus::internalError());
-        }
-    }
-
-    protected function httpClientRequestSendingHandler(HttpClientEvents\RequestSending $event): void
-    {
-        if (!$this->traceHttpClientRequests) {
-            return;
-        }
-
-        $parentSpan = SentrySdk::getCurrentHub()->getSpan();
-
-        // If there is no tracing span active there is no need to handle the event
-        if ($parentSpan === null) {
-            return;
-        }
-
-        $context = new SpanContext;
-
-        $fullUri = $this->getFullUri($event->request->url());
-        $partialUri = $this->getPartialUri($fullUri);
-
-        $context->setOp('http.client');
-        $context->setDescription($event->request->method() . ' ' . $partialUri);
-        $context->setData([
-            'url' => $partialUri,
-            'http.request.method' => $event->request->method(),
-            'http.query' => $fullUri->getQuery(),
-            'http.fragment' => $fullUri->getFragment(),
-        ]);
-
-        $this->pushSpan($parentSpan->startChild($context));
-    }
-
-    protected function httpClientResponseReceivedHandler(HttpClientEvents\ResponseReceived $event): void
-    {
-        if (!$this->traceHttpClientRequests) {
-            return;
-        }
-
-        $span = $this->popSpan();
-
-        if ($span !== null) {
-            $span->finish();
-            $span->setHttpStatus($event->response->status());
-        }
-    }
-
-    protected function httpClientConnectionFailedHandler(HttpClientEvents\ConnectionFailed $event): void
-    {
-        if (!$this->traceHttpClientRequests) {
-            return;
-        }
-
         $span = $this->popSpan();
 
         if ($span !== null) {

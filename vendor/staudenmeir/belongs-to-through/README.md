@@ -1,11 +1,12 @@
-![CI](https://github.com/staudenmeir/belongs-to-through/workflows/CI/badge.svg)
+# BelongsToThrough
+
+[![CI](https://github.com/staudenmeir/belongs-to-through/actions/workflows/ci.yml/badge.svg)](https://github.com/staudenmeir/belongs-to-through/actions/workflows/ci.yml)
 [![Code Coverage](https://scrutinizer-ci.com/g/staudenmeir/belongs-to-through/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/staudenmeir/belongs-to-through/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/staudenmeir/belongs-to-through/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/staudenmeir/belongs-to-through/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/staudenmeir/belongs-to-through/v/stable)](https://packagist.org/packages/staudenmeir/belongs-to-through)
-[![Total Downloads](https://poser.pugx.org/staudenmeir/belongs-to-through/downloads)](https://packagist.org/packages/staudenmeir/belongs-to-through)
-[![License](https://poser.pugx.org/staudenmeir/belongs-to-through/license)](https://packagist.org/packages/staudenmeir/belongs-to-through)
+[![Total Downloads](https://poser.pugx.org/staudenmeir/belongs-to-through/downloads)](https://packagist.org/packages/staudenmeir/belongs-to-through/stats)
+[![License](https://poser.pugx.org/staudenmeir/belongs-to-through/license)](https://github.com/staudenmeir/belongs-to-through/blob/master/LICENSE)
 
-## Introduction
 This inverse version of `HasManyThrough` allows `BelongsToThrough` relationships with unlimited intermediate models.
 
 Supports Laravel 5.0+.
@@ -19,6 +20,11 @@ Use this command if you are in PowerShell on Windows (e.g. in VS Code):
     composer require staudenmeir/belongs-to-through:"^^^^2.5"
 
 ## Usage
+
+- [Custom Foreign Keys](#custom-foreign-keys)
+- [Custom Local Keys](#custom-local-keys)
+- [Table Aliases](#table-aliases)
+- [Soft Deleting](#soft-deleting)
 
 Consider this `HasManyThrough` relationship:  
 `Country` → has many → `User` → has many → `Post`
@@ -65,6 +71,8 @@ class Comment extends Model
 }
 ```
 
+### Custom Foreign Keys
+
 You can specify custom foreign keys as the fifth argument:
 
 ```php
@@ -82,6 +90,32 @@ class Comment extends Model
             [User::class => 'custom_user_id']
         );
     }
+}
+```
+
+### Custom Local Keys
+
+You can specify custom local keys for the relations:
+
+`VendorCustomerAddress` → belongs to → `VendorCustomer` in `VendorCustomerAddress.vendor_customer_id`
+`VendorCustomerAddress` → belongs to → `CustomerAddress` in `VendorCustomerAddress.address_id`
+
+You can access `VendorCustomer` from `CustomerAddress` by the following
+
+```php
+class CustomerAddress extends Model
+{
+    use \Znck\Eloquent\Traits\BelongsToThrough;
+
+    public function vendorCustomer(): BelongsToThrough
+    {
+        return $this->belongsToThrough(
+            VendorCustomer::class,
+            VendorCustomerAddress::class,
+            foreignKeyLookup: [VendorCustomerAddress::class => 'id'],
+            localKeyLookup: [VendorCustomerAddress::class => 'address_id'],
+        );
+    }    
 }
 ```
 
