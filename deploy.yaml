@@ -3,7 +3,7 @@ name: Build & Deploy
 on: 
     push:
 
-      branches:[main]
+      branches:[master]
 
 jobs:
 
@@ -22,7 +22,7 @@ jobs:
 
           username: ${{ secrets.SSH_USERNAME }}
 
-        scripts: |
+        script: |
 
           mkdir test
 
