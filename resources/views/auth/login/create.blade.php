@@ -5,9 +5,9 @@
 
     <x-slot name="content">
         <div>
-            <img src="{{ asset('public/img/akaunting-logo-green.svg') }}" class="w-16" alt="Akaunting" />
+            <img src="{{ asset('public/img/Software-small-logo-empty.png') }}" class="w-16" alt="Akaunting" />
 
-            <h1 class="text-lg my-3">
+            <h1 class="text-lg my-3 text-black">
                 {{ trans('auth.login_to') }}
             </h1>
         </div>
@@ -42,7 +42,7 @@
                     input-group-class="input-group-alternative"
                 />
 
-                <div class="sm:col-span-6 flex flex-row justify-between items-center">
+                <div class="sm:col-span-6 flex flex-row justify-between items-center text-black">
                     @stack('remember_input_start')
                     <div>
                         <x-form.input.checkbox

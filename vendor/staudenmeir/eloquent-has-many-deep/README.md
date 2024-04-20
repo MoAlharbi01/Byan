@@ -1,7 +1,7 @@
 # Eloquent HasManyDeep
 
 [![CI](https://github.com/staudenmeir/eloquent-has-many-deep/actions/workflows/ci.yml/badge.svg)](https://github.com/staudenmeir/eloquent-has-many-deep/actions/workflows/ci.yml)
-[![Code Coverage](https://scrutinizer-ci.com/g/staudenmeir/eloquent-has-many-deep/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/staudenmeir/eloquent-has-many-deep/?branch=master)
+[![Code Coverage](https://codecov.io/gh/staudenmeir/eloquent-has-many-deep/graph/badge.svg?token=H59fIf4mG6)](https://codecov.io/gh/staudenmeir/eloquent-has-many-deep)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/staudenmeir/eloquent-has-many-deep/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/staudenmeir/eloquent-has-many-deep/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/staudenmeir/eloquent-has-many-deep/v/stable)](https://packagist.org/packages/staudenmeir/eloquent-has-many-deep)
 [![Total Downloads](https://poser.pugx.org/staudenmeir/eloquent-has-many-deep/downloads)](https://packagist.org/packages/staudenmeir/eloquent-has-many-deep/stats)
@@ -11,7 +11,7 @@ This extended version of `HasManyThrough` allows relationships with unlimited in
 It supports [many-to-many](#manytomany) and [polymorphic](#morphmany) relationships and all their possible combinations.
 It also supports some [third-party packages](#third-party-packages).
 
-Supports Laravel 5.5.29+.
+Supports Laravel 5.5+.
 
 ## Installation
 
@@ -55,6 +55,7 @@ foreign and local keys [manually](#defining-relationships-manually).
 - [Intermediate and Pivot Constraints](#intermediate-and-pivot-constraints)
 - [Table Aliases](#table-aliases)
 - [Soft Deleting](#soft-deleting)
+- [Getting Unique Results](#getting-unique-results)
 - [Reversing Relationships](#reversing-relationships)
 - [IDE Helper](#ide-helper)
 
@@ -133,7 +134,9 @@ Besides native Laravel relationships, you can also concatenate relationships fro
 
 - https://github.com/korridor/laravel-has-many-merged: `HasManyMerged`
 - https://github.com/staudenmeir/eloquent-json-relations: `BelongsToJson`, `HasManyJson`, `HasManyThroughJson`
-- https://github.com/staudenmeir/laravel-adjacency-list: [Tree relationships](https://github.com/staudenmeir/laravel-adjacency-list#concatenation)
+- https://github.com/staudenmeir/laravel-adjacency-list: [Tree](https://github.com/staudenmeir/laravel-adjacency-list?tab=readme-ov-file#deep-relationship-concatenation)
+  & [Graph](https://github.com/staudenmeir/laravel-adjacency-list?tab=readme-ov-file#graphs-deep-relationship-concatenation)
+  relationships
 - https://github.com/topclaudy/compoships: `BelongsTo`, `HasMany`, `HasOne`
 
 ### Defining Relationships Manually
@@ -576,7 +579,7 @@ class RoleUser extends Pivot
 }
 ```
 
-Use `setAlias()` to specify a table alias when concatenating existing relationships (Laravel 6+):
+Use `setAlias()` to specify a table alias when concatenating existing relationships:
 
 ```php
 class Post extends Model
@@ -628,6 +631,31 @@ class User extends Model
 {
     use SoftDeletes;
 }
+```
+
+### Getting Unique Results
+
+Deep relationships with many-to-many segments can contain duplicate models in their results. If you want to get unique
+results, you can remove duplicates from the result collection:
+
+```php
+$uniqueComments = Country::find($id)->comments()->get()->unique();
+```
+
+If you need to remove duplicates in the query (e.g. for pagination), try adding `distinct()`:
+
+```php
+$uniqueComments = Country::find($id)->comments()->distinct()->get();
+```
+
+`distinct()` doesn't work for all cases. If it doesn't work for you, use `groupBy()` instead:
+
+```php
+$uniqueComments = Country::find($id)->comments()
+    ->getQuery()             // Get the underlying query builder
+    ->select('comments.*')   // Select only columns from the related table
+    ->groupBy('comments.id') // Group by the related table's primary key 
+    ->get();
 ```
 
 ### Reversing Relationships
@@ -692,6 +720,7 @@ To disable the model hook you have 3 options:
  - [Disable by option out of Package Discovery](#disable-by-opting-out-of-package-discovery)
 
 #### Disable using .env
+
 Update your `.env` file to include:
 
 ```dotenv
@@ -699,6 +728,7 @@ ELOQUENT_HAS_MANY_DEEP_IDE_HELPER_ENABLED=false
 ```
 
 #### Disable using config
+
 Publish the config and disable the setting directly:
 
 ```
@@ -720,6 +750,7 @@ php artisan vendor:publish --tag=eloquent-has-many-deep
 ```
 
 #### Disable by opting out of Package Discovery
+
 Update your `composer.json` with the following:
 
 ```json

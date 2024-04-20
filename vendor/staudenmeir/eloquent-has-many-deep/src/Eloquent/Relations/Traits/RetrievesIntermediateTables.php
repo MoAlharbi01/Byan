@@ -100,7 +100,7 @@ trait RetrievesIntermediateTables
         foreach ($intermediateTables as $accessor => $intermediateTable) {
             $prefix = $this->prefix($accessor);
 
-            if (Str::contains($accessor, '.')) {
+            if (str_contains($accessor, '.')) {
                 [$path, $key] = preg_split('/\.(?=[^.]*$)/', $accessor);
             } else {
                 [$path, $key] = [null, $accessor];
@@ -177,5 +177,15 @@ trait RetrievesIntermediateTables
     protected function prefix($accessor)
     {
         return '__'.$accessor.'__';
+    }
+
+    /**
+     * Get the intermediate tables.
+     *
+     * @return array
+     */
+    public function getIntermediateTables(): array
+    {
+        return $this->intermediateTables;
     }
 }

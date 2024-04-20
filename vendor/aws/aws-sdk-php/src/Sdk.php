@@ -56,6 +56,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionApplicationInsights(array $args = [])
  * @method \Aws\Appstream\AppstreamClient createAppstream(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionAppstream(array $args = [])
+ * @method \Aws\Artifact\ArtifactClient createArtifact(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionArtifact(array $args = [])
  * @method \Aws\Athena\AthenaClient createAthena(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionAthena(array $args = [])
  * @method \Aws\AuditManager\AuditManagerClient createAuditManager(array $args = [])
@@ -92,6 +94,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionBraket(array $args = [])
  * @method \Aws\Budgets\BudgetsClient createBudgets(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionBudgets(array $args = [])
+ * @method \Aws\Chatbot\ChatbotClient createChatbot(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionChatbot(array $args = [])
  * @method \Aws\Chime\ChimeClient createChime(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionChime(array $args = [])
  * @method \Aws\ChimeSDKIdentity\ChimeSDKIdentityClient createChimeSDKIdentity(array $args = [])
@@ -500,6 +504,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionNetworkFirewall(array $args = [])
  * @method \Aws\NetworkManager\NetworkManagerClient createNetworkManager(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionNetworkManager(array $args = [])
+ * @method \Aws\NetworkMonitor\NetworkMonitorClient createNetworkMonitor(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionNetworkMonitor(array $args = [])
  * @method \Aws\NimbleStudio\NimbleStudioClient createNimbleStudio(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionNimbleStudio(array $args = [])
  * @method \Aws\OAM\OAMClient createOAM(array $args = [])
@@ -684,6 +690,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionStorageGateway(array $args = [])
  * @method \Aws\Sts\StsClient createSts(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionSts(array $args = [])
+ * @method \Aws\SupplyChain\SupplyChainClient createSupplyChain(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionSupplyChain(array $args = [])
  * @method \Aws\Support\SupportClient createSupport(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionSupport(array $args = [])
  * @method \Aws\SupportApp\SupportAppClient createSupportApp(array $args = [])
@@ -755,7 +763,7 @@ namespace Aws;
  */
 class Sdk
 {
-    const VERSION = '3.294.3';
+    const VERSION = '3.300.1';
 
     /** @var array Arguments for creating clients */
     private $args;

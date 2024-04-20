@@ -82,7 +82,6 @@ class Widget extends Model
         $settings->raw_width = false;
 
         if (isset($settings->width)) {
-
             $raw_width = $settings->width;
             $width = $this->getWidthAttribute($settings->width);
 

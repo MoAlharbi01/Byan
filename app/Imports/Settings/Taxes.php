@@ -10,9 +10,18 @@ class Taxes extends Import
 {
     public $request_class = Request::class;
 
+    public $columns = [
+        'name',
+        'type',
+    ];
+
     public function model(array $row)
     {
         if (empty($row)) {
+            return;
+        }
+
+        if (self::hasRow($row)) {
             return;
         }
 

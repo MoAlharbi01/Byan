@@ -6,13 +6,20 @@ namespace Sentry;
 
 use Sentry\Context\OsContext;
 use Sentry\Context\RuntimeContext;
+use Sentry\Metrics\Types\AbstractType;
 use Sentry\Profiling\Profile;
 use Sentry\Tracing\Span;
 
 /**
  * This is the base class for classes containing event data.
  *
- * @author Stefano Arlandini <sarlandini@alice.it>
+ * @phpstan-type MetricsSummary array{
+ *     min: int|float,
+ *     max: int|float,
+ *     sum: int|float,
+ *     count: int,
+ *     tags: array<string>,
+ * }
  */
 final class Event
 {
@@ -54,6 +61,16 @@ final class Event
      * @var CheckIn|null The check in data
      */
     private $checkIn;
+
+    /**
+     * @var array<string, AbstractType> The metrics data
+     */
+    private $metrics = [];
+
+    /**
+     * @var array<string, array<string, MetricsSummary>>
+     */
+    private $metricsSummary = [];
 
     /**
      * @var string|null The name of the server (e.g. the host name)
@@ -210,6 +227,11 @@ final class Event
         return new self($eventId, EventType::checkIn());
     }
 
+    public static function createMetrics(?EventId $eventId = null): self
+    {
+        return new self($eventId, EventType::metrics());
+    }
+
     /**
      * Gets the ID of this event.
      */
@@ -350,6 +372,42 @@ final class Event
     public function setCheckIn(?CheckIn $checkIn): self
     {
         $this->checkIn = $checkIn;
+
+        return $this;
+    }
+
+    /**
+     * @return array<string, AbstractType>
+     */
+    public function getMetrics(): array
+    {
+        return $this->metrics;
+    }
+
+    /**
+     * @param array<string, AbstractType> $metrics
+     */
+    public function setMetrics(array $metrics): self
+    {
+        $this->metrics = $metrics;
+
+        return $this;
+    }
+
+    /**
+     * @return array<string, array<string, MetricsSummary>>
+     */
+    public function getMetricsSummary(): array
+    {
+        return $this->metricsSummary;
+    }
+
+    /**
+     * @param array<string, array<string, MetricsSummary>> $metricsSummary
+     */
+    public function setMetricsSummary(array $metricsSummary): self
+    {
+        $this->metricsSummary = $metricsSummary;
 
         return $this;
     }

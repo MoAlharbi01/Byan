@@ -3,7 +3,7 @@
 return [
 
     'version'               => 'Verze',
-    'powered'               => 'Powered By Akaunting',
+    'powered'               => 'Powered By Byan',
     'link'                  => 'https://akaunting.com',
     'software'              => 'Účetní software zdarma',
     'powered_by'            => 'Využívá služby',

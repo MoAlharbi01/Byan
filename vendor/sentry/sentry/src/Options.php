@@ -218,6 +218,26 @@ final class Options
     }
 
     /**
+     * Gets whether a metric has their code location attached.
+     */
+    public function shouldAttachMetricCodeLocations(): bool
+    {
+        return $this->options['attach_metric_code_locations'];
+    }
+
+    /**
+     * Sets whether a metric will have their code location attached.
+     */
+    public function setAttachMetricCodeLocations(bool $enable): self
+    {
+        $options = array_merge($this->options, ['attach_metric_code_locations' => $enable]);
+
+        $this->options = $this->resolver->resolve($options);
+
+        return $this;
+    }
+
+    /**
      * Gets the number of lines of code context to capture, or null if none.
      */
     public function getContextLines(): ?int
@@ -509,6 +529,62 @@ final class Options
     public function setBeforeSendTransactionCallback(callable $callback): self
     {
         $options = array_merge($this->options, ['before_send_transaction' => $callback]);
+
+        $this->options = $this->resolver->resolve($options);
+
+        return $this;
+    }
+
+    /**
+     * Gets a callback that will be invoked before a check-in is sent to the server.
+     * If `null` is returned it won't be sent.
+     *
+     * @psalm-return callable(Event, ?EventHint): ?Event
+     */
+    public function getBeforeSendCheckInCallback(): callable
+    {
+        return $this->options['before_send_check_in'];
+    }
+
+    /**
+     * Sets a callable to be called to decide whether a check-in should
+     * be captured or not.
+     *
+     * @param callable $callback The callable
+     *
+     * @psalm-param callable(Event, ?EventHint): ?Event $callback
+     */
+    public function setBeforeSendCheckInCallback(callable $callback): self
+    {
+        $options = array_merge($this->options, ['before_send_check_in' => $callback]);
+
+        $this->options = $this->resolver->resolve($options);
+
+        return $this;
+    }
+
+    /**
+     * Gets a callback that will be invoked before metrics are sent to the server.
+     * If `null` is returned it won't be sent.
+     *
+     * @psalm-return callable(Event, ?EventHint): ?Event
+     */
+    public function getBeforeSendMetricsCallback(): callable
+    {
+        return $this->options['before_send_metrics'];
+    }
+
+    /**
+     * Sets a callable to be called to decide whether metrics should
+     * be send or not.
+     *
+     * @param callable $callback The callable
+     *
+     * @psalm-param callable(Event, ?EventHint): ?Event $callback
+     */
+    public function setBeforeSendMetricsCallback(callable $callback): self
+    {
+        $options = array_merge($this->options, ['before_send_metrics' => $callback]);
 
         $this->options = $this->resolver->resolve($options);
 
@@ -1009,6 +1085,7 @@ final class Options
             'traces_sampler' => null,
             'profiles_sample_rate' => null,
             'attach_stacktrace' => false,
+            'attach_metric_code_locations' => false,
             'context_lines' => 5,
             'environment' => $_SERVER['SENTRY_ENVIRONMENT'] ?? null,
             'logger' => null,
@@ -1024,6 +1101,12 @@ final class Options
             },
             'before_send_transaction' => static function (Event $transaction): Event {
                 return $transaction;
+            },
+            'before_send_check_in' => static function (Event $checkIn): Event {
+                return $checkIn;
+            },
+            'before_send_metrics' => static function (Event $metrics): Event {
+                return $metrics;
             },
             'trace_propagation_targets' => null,
             'tags' => [],
@@ -1056,6 +1139,7 @@ final class Options
         $resolver->setAllowedTypes('traces_sampler', ['null', 'callable']);
         $resolver->setAllowedTypes('profiles_sample_rate', ['null', 'int', 'float']);
         $resolver->setAllowedTypes('attach_stacktrace', 'bool');
+        $resolver->setAllowedTypes('attach_metric_code_locations', 'bool');
         $resolver->setAllowedTypes('context_lines', ['null', 'int']);
         $resolver->setAllowedTypes('environment', ['null', 'string']);
         $resolver->setAllowedTypes('in_app_exclude', 'string[]');

@@ -23,14 +23,6 @@
                     @endif
                 @endif
                 @stack('company_logo_input_end')
-
-                @foreach ($document->totals_sorted as $taxes)
-                @if ($taxes->code == 'tax')
-                @php
-                $tax_amount = $taxes->amount;
-                @endphp
-                @endif
-                @endforeach
             </div>
         </div>
 
