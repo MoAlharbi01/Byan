@@ -22,9 +22,9 @@
                 'border-r border-gray-300' => ($i-1 == $reports->count()) ? false : true,
             ])
         >
-            <span class="material-icons-outlined text-4xl transform rotate-45">push_pin</span>
+            <span class="material-icons-outlined text-4xl transform rotate-45 text-black">push_pin</span>
 
-            <div class="h-10 font-medium text-sm mt-2">
+            <div class="h-10 font-medium text-sm mt-2 text-black">
                 {{ trans('reports.pin') }}
             </div>
         </div>

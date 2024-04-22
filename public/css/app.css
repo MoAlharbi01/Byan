@@ -44111,8 +44111,8 @@ textarea {
 }
 
 .bg-body {
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255)
+    --tw-bg-opacity: 0.3;
+    background-color: rgb(0 84 48)
 }
 
 .bg-current {
@@ -58537,7 +58537,7 @@ textarea {
 
 .text-purple {
     --tw-text-opacity: 1;
-    color: rgb(255 255 255);
+    color: rgb(0 0 0);
 }
 
 .text-purple-100 {
