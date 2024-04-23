@@ -136,7 +136,7 @@
             @endcan
         </div>
 
-        <div class="main-menu transform">
+        <div class="main-menu transform text-white">
             {!! menu('portal') !!}
         </div>
     </nav>

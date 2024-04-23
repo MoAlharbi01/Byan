@@ -165,7 +165,7 @@
 
         @stack('main_menu_admin_start')
 
-        <div class="main-menu transform">
+        <div class="main-menu transform text-white">
             {!! menu('admin') !!}
         </div>
 
