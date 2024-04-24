@@ -172,7 +172,7 @@ class Menu extends Presenter
 
     public function getClass($item)
     {
-        $class = 'flex items-center text-purple';
+        $class = 'flex items-center text-white';
 
         $attributes = $item->attributes;
 
@@ -235,7 +235,7 @@ class Menu extends Presenter
     {
         $state = $this->chevronState($item);
 
-        return '<span class="material-icons text-purple absolute ltr:-right-1.5 rtl:-left-1.5 transform transition-all">expand' . $state . '</span>' . PHP_EOL;
+        return '<span class="material-icons text-white absolute ltr:-right-1.5 rtl:-left-1.5 transform transition-all">expand' . $state . '</span>' . PHP_EOL;
     }
 
     public function chevronState($item, $state = '_less')

@@ -31,7 +31,7 @@
             class="flex flex-col items-center justify-center mb-5 cursor-pointer menu-button"
             data-menu="profile-menu"
         >
-            <span name="account_circle" class="material-icons-outlined w-8 h-8 flex items-center justify-center text-purple text-2xl hidden pointer-events-none">
+            <span name="account_circle" class="material-icons-outlined w-8 h-8 flex items-center justify-center text-white text-2xl hidden pointer-events-none">
                 account_circle
             </span>
 

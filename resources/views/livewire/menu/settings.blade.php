@@ -15,7 +15,7 @@
         <ul class="flex flex-col justify-center">
             <li class="text-sm mb-5">
                 <div class="flex items-start">
-                    <p class="text-black">
+                    <p class="text-white">
                         {{ trans('notifications.empty') }}
                     </p>
                 </div>

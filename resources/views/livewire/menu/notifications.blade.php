@@ -23,7 +23,7 @@
                 @endif
 
                 <li class="mb-5 border-b pb-2">
-                    <div class="flex items-start justify-between font-medium text-sm text-purple mb-1">
+                    <div class="flex items-start justify-between font-medium text-sm text-white mb-1">
                         <div class="flex flex-col">
                             {!! $notification->data['title'] !!}
 
@@ -53,7 +53,7 @@
         <ul class="flex flex-col justify-center">
             <li class="text-sm mb-5">
                 <div class="flex items-start">
-                    <p class="text-black">
+                    <p class="text-white">
                         {{ trans('notifications.empty') }}
                     </p>
                 </div>

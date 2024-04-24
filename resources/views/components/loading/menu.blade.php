@@ -12,7 +12,7 @@
 >
     <div class="w-14 py-7 px-1 bg-lilac-900 z-10 menu-scroll overflow-y-auto overflow-x-hidden">
         <div class="flex flex-col items-center justify-center mb-7 cursor-pointer">
-            <span class="w-7 h-7 flex items-center justify-center text-2xl">
+            <span class="w-7 h-7 flex items-center justify-center text-2xl text-white">
                 <div class="w-full h-full animate-pulse bg-gray-300 rounded-full"></div>
             </span>
         </div>

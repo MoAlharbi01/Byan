@@ -47,7 +47,7 @@
             class="flex flex-col items-center justify-center mb-5 cursor-pointer menu-button"
             data-menu="profile-menu"
         >
-            <span id="menu-profile-icon-cancel" name="account_circle" class="material-icons-outlined w-8 h-8 flex items-center justify-center text-purple text-2xl hidden pointer-events-none">
+            <span id="menu-profile-icon-cancel" name="account_circle" class="material-icons-outlined w-8 h-8 flex items-center justify-center text-white text-2xl hidden pointer-events-none">
                 account_circle
             </span>
 
@@ -77,7 +77,7 @@
                     ])
                     data-menu="notifications-menu"
                 >
-                    <span id="menu-notification-icon" name="notifications" class="material-icons-outlined text-purple text-2xl pointer-events-none">notifications</span>
+                    <span id="menu-notification-icon" name="notifications" class="material-icons-outlined text-white text-2xl pointer-events-none">notifications</span>
 
                     @if ($notification_count)
                         <span data-notification-count class="w-2 h-2 absolute top-2 right-2 inline-flex items-center justify-center p-2.5 text-xs text-white font-bold leading-none transform translate-x-1/2 -translate-y-1/2 bg-orange rounded-full">
@@ -90,25 +90,25 @@
 
             <x-tooltip id="tooltip-search" placement="right" message="{{ trans('general.search') }}">
                 <button type="button" class="flex items-center menu-button justify-center w-8 h-8 mb-2.5 relative cursor-pointer outline-none">
-                    <span id="menu-search-icon" name="search" class="material-icons-outlined text-purple text-2xl pointer-events-none">search</span>
+                    <span id="menu-search-icon" name="search" class="material-icons-outlined text-white text-2xl pointer-events-none">search</span>
                 </button>
             </x-tooltip>
 
             <x-tooltip id="tooltip-new" placement="right" message="{{ trans('general.new') }}">
                 <button type="button" class="add-item menu-button flex items-center justify-center w-8 h-8 mb-2.5 cursor-pointer js-menu-toggles" data-menu="add-new-menu">
-                    <span id="menu-neww-icon" name="add_circle_outline" class="material-icons-outlined text-purple text-2xl pointer-events-none">add_circle_outline</span>
+                    <span id="menu-neww-icon" name="add_circle_outline" class="material-icons-outlined text-white text-2xl pointer-events-none">add_circle_outline</span>
                 </button>
             </x-tooltip>
 
             <x-tooltip id="tooltip-settings" placement="right" message="{{ trans_choice('general.settings', 2) }}">
                 <button type="button" class="settings-item menu-button flex items-center justify-center w-8 h-8 mb-2.5 cursor-pointer js-menu-toggles" data-menu="settings-menu">
-                    <span id="menu-settings-icon" name="settings" class="material-icons-outlined text-purple text-2xl pointer-events-none">settings</span>
+                    <span id="menu-settings-icon" name="settings" class="material-icons-outlined text-white text-2xl pointer-events-none">settings</span>
                 </button>
             </x-tooltip>
 
             <x-tooltip id="tooltip-support" placement="right" message="{{ trans('general.help') }}">
                 <x-link href="{{ url(trans('header.support_link')) }}" target="_blank" class="flex items-center justify-center w-8 h-8 mb-2.5 cursor-pointer js-menu-toggles" override="class">
-                    <span id="menu-support-icon" class="material-icons-outlined text-purple text-2xl pointer-events-none">support</span>
+                    <span id="menu-support-icon" class="material-icons-outlined text-white text-2xl pointer-events-none">support</span>
                 </x-link>
             </x-tooltip>
         </div>
@@ -135,7 +135,7 @@
                     </span>
 
                     <div class="absolute top-2 ltr:-right-1 rtl:-left-1">
-                        <svg class="h-5 w-5 text-gray-400" x-description="Heroicon name: solid/selector" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <svg class="h-5 w-5 text-white" x-description="Heroicon name: solid/selector" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                         </svg>
                     </div>

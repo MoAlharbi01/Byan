@@ -8,7 +8,7 @@
 
         <div class="w-full lg:w-1/12 flex flex-row lg:flex-col items-center lg:justify-start justify-center lg:mt-11 space-y-0 sm:space-y-2">
             <div class="relative w-32 lg:w-auto flex flex-col items-center sm:justify-between text-center">
-                <div class="flex justify-end lg:block text-lg">
+                <div class="flex justify-end lg:block text-lg text-black">
                     <x-tooltip id="tooltip-cashflow-incoming" placement="top" message="{{ $totals['incoming_exact'] }}">
                         {{ $totals['incoming_for_humans'] }}
                     </x-tooltip>
@@ -18,11 +18,11 @@
                     {{ trans('general.incoming') }}
                 </span>
 
-                <span class="absolute lg:relative lg:block material-icons mt-2 -right-4 lg:right-0">remove</span>
+                <span class="absolute lg:relative lg:block material-icons mt-2 -right-4 lg:right-0 text-black">remove</span>
             </div>
 
             <div class="relative w-32 lg:w-auto flex flex-col items-center sm:justify-between">
-                <div class="flex justify-end lg:block text-lg">
+                <div class="flex justify-end lg:block text-lg text-black">
                     <x-tooltip id="tooltip-cashflow-outgoing" placement="top" message="{{ $totals['outgoing_exact'] }}">
                         {{ $totals['outgoing_for_humans'] }}
                     </x-tooltip>
@@ -32,11 +32,11 @@
                     {{ trans('general.outgoing') }}
                 </span>
 
-                <span class="absolute lg:relative lg:block material-icons mt-2 -right-4 lg:right-0">drag_handle</span>
+                <span class="absolute lg:relative lg:block material-icons mt-2 -right-4 lg:right-0 text-black">drag_handle</span>
             </div>
 
             <div class="relative w-32 lg:w-auto flex flex-col items-center sm:justify-between">
-                <div class="flex justify-end lg:block text-lg">
+                <div class="flex justify-end lg:block text-lg text-black">
                     <x-tooltip id="tooltip-cashflow-profit" placement="top" message="{{ $totals['profit_exact'] }}">
                         {{ $totals['profit_for_humans'] }}
                     </x-tooltip>

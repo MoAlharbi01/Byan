@@ -83446,8 +83446,8 @@ html[dir=rtl] .lines-radius-border thead td:last-child {
 }
 
 ::selection {
-    background: #55588b;
-    color: #fff
+    background: #c0c4cc;
+    color: #000000
 }
 
 input[type=number]::-webkit-inner-spin-button,

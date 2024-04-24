@@ -160,7 +160,7 @@ class Tailwind extends Presenter
 
     public function getClass($item)
     {
-        $class = 'flex items-center text-purple';
+        $class = 'flex items-center text-white';
 
         $attributes = $item->attributes;
 
