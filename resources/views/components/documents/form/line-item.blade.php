@@ -194,7 +194,7 @@
                                 <div class="absolute -top-6 ltr:left-3 rtl:right-3 flex items-center">
                                     @if (! $hideDiscount && in_array(setting('localisation.discount_location'), ['item', 'both']))
                                         <div class="text-left border-0 p-0 mr-16" v-if="!row.add_discount">
-                                            <x-button type="button" class="text-xs text-purple" @click="onAddLineDiscount(index)" override="class">
+                                            <x-button type="button" class="text-xs text-black" @click="onAddLineDiscount(index)" override="class">
                                                 <x-button.hover color="to-purple">
                                                     {{ trans('general.title.add', ['type' => trans('invoices.discount')]) }}
                                                 </x-button.hover>
@@ -203,7 +203,7 @@
                                     @endif
 
                                     <div class="text-right border-0 p-0 pr-4">
-                                        <x-button type="button" class="text-xs text-purple" @click="onAddTax(index)" override="class">
+                                        <x-button type="button" class="text-xs text-black" @click="onAddTax(index)" override="class">
                                             <x-button.hover color="to-purple">
                                                 {{ trans('general.title.add', ['type' => trans_choice('general.taxes', 1)]) }}
                                             </x-button.hover>

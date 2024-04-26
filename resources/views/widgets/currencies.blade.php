@@ -3,7 +3,7 @@
 
     <ul class="text-sm space-y-3 my-3 text-black">
         @foreach($currencies as $item)
-            <li class="flex justify-between">
+            <li class="flex justify-between text-black">
                 {{ $item->name }}
 
                 <span class="font-medium">

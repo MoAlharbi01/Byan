@@ -60,7 +60,7 @@
                                 @canany(['create-common-reports', 'update-common-reports', 'delete-common-reports'])
                                 <x-dropdown id="index-line-actions-report-{{ $category_id }}-{{ $report->id }}">
                                     <x-slot name="trigger" class="flex" override="class">
-                                        <span class="w-8 h-8 flex items-center justify-center px-2 py-2 rtl:mr-4 hover:bg-gray-100 rounded-xl text-purple text-sm font-medium leading-6">
+                                        <span class="w-8 h-8 flex items-center justify-center px-2 py-2 rtl:mr-4 hover:bg-gray-100 rounded-xl text-black text-sm font-medium leading-6">
                                             <span class="material-icons pointer-events-none text-black">more_vert</span>
                                         </span>
                                     </x-slot>
