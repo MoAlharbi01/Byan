@@ -8,7 +8,7 @@
                 <h2 x-show="toggle === 'bar'">{{ trans('general.distribution') }}</h2>
             </div>
 
-            <div class="flex items-center bg-gray-200 p-1 rounded-lg">
+            <div class="flex items-center bg-gray-200 p-1 rounded-lg text-black">
                 <button type="button"
                     class="w-18 flex justify-center px-2"
                     x-bind:class="toggle === 'donut' ? 'bg-white rounded-lg' : 'btn-outline-primary'"
