@@ -28,13 +28,13 @@
 
             <x-dropdown id="show-more-actions-widget-{{ $class->model->id }}">
                 <x-slot name="trigger" class="flex" override="class">
-                    <span class="w-8 h-8 flex items-center justify-center px-2 py-2 hover:bg-gray-100 rounded-xl text-purple text-sm font-medium leading-6">
+                    <span class="w-8 h-8 flex items-center justify-center px-2 py-2 hover:bg-gray-100 rounded-xl text-black text-sm font-medium leading-6">
                         <span class="material-icons pointer-events-none">more_vert</span>
                     </span>
                 </x-slot>
 
                 @can('update-common-widgets')
-                <div class="w-full flex items-center text-purple px-2 h-9 leading-9 whitespace-nowrap">
+                <div class="w-full flex items-center text-black px-2 h-9 leading-9 whitespace-nowrap">
                     <x-button
                         type="button"
                         id="show-more-actions-edit-widget-{{ $class->model->id }}"

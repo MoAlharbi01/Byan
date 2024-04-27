@@ -116,8 +116,8 @@
                     @foreach($companies as $com)
                         <x-link href="{{ route('companies.switch', $com->id) }}" id="menu-company-{{ $com->id }}" class="h-9 leading-9 flex items-center text-sm px-2" override="class" role="menuitem" tabindex="-1">
                             <div class="w-full h-full flex items-center rounded-md px-2 hover:bg-lilac-100">
-                                <span class="material-icons-outlined text-purple text-xl">business</span>
-                                <span class="ltr:pl-2 rtl:pr-2 text-purple text-xs truncate">{{ Str::limit($com->name, 18) }}</span>
+                                <span class="material-icons-outlined text-black text-xl">business</span>
+                                <span class="ltr:pl-2 rtl:pr-2 text-black text-xs truncate">{{ Str::limit($com->name, 18) }}</span>
                             </div>
                         </x-link>
                     @endforeach
@@ -125,8 +125,8 @@
                     @can('update-common-companies')
                         <x-link href="{{ route('companies.index') }}" class="h-9 leading-9 flex items-center text-sm px-2 border-t rounded-bl rounded-br group hover:bg-purple" override="class">
                             <div class="w-full h-full flex items-center rounded-md px-2">
-                                <span class="material-icons-outlined text-purple text-xl group-hover:text-white">settings</span>
-                                <span class="ltr:pl-2 rtl:pr-2 text-purple text-xs truncate group-hover:text-white">
+                                <span class="material-icons-outlined text-black text-xl group-hover:text-white">settings</span>
+                                <span class="ltr:pl-2 rtl:pr-2 text-black text-xs truncate group-hover:text-white">
                                     {{ trans('general.title.manage', ['type' => trans_choice('general.companies', 2)]) }}
                                 </span>
                             </div>
@@ -153,7 +153,7 @@
 
             @stack('navbar_profile_welcome')
 
-            <div class="flex flex-col text-black ml-2">
+            <div class="flex flex-col text-white ml-2">
                 <span class="text-xs">{{ trans('general.welcome') }}</span>
 
                 {{ user()->name }}

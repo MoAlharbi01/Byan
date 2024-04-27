@@ -42,7 +42,7 @@
                     </x-tooltip>
                 </div>
 
-                <span class="text-purple text-xs lg:block">{{ trans_choice('general.profits', 1) }}</span>
+                <span class="text-black text-xs lg:block">{{ trans_choice('general.profits', 1) }}</span>
             </div>
         </div>
     </div>

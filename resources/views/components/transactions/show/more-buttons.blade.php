@@ -30,7 +30,7 @@
         )
             @if (! $hideButtonConnect)
                 @can($permissionCreate)
-                <div class="w-full flex items-center text-purple px-2 h-9 leading-9 whitespace-nowrap">
+                <div class="w-full flex items-center text-black px-2 h-9 leading-9 whitespace-nowrap">
                     <button
                         type="button"
                         id="show-more-actions-connect-{{ $transaction->type }}"

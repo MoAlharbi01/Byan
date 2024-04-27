@@ -95,7 +95,7 @@
                             @case('button')
                                 @php $divider = false; @endphp
 
-                                <div class="w-full flex items-center text-purple px-2 h-9 leading-9 whitespace-nowrap" {!! $action['attributes'] ?? null !!}>
+                                <div class="w-full flex items-center text-black px-2 h-9 leading-9 whitespace-nowrap" {!! $action['attributes'] ?? null !!}>
                                     <button type="button" class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100">
                                         {{ $action['title'] }}
                                     </button>
@@ -126,7 +126,7 @@
                             @default
                                 @php $divider = false; @endphp
 
-                                <div class="w-full flex items-center text-purple px-2 h-9 leading-9 whitespace-nowrap" {!! $action['attributes'] ?? null !!}>
+                                <div class="w-full flex items-center text-black px-2 h-9 leading-9 whitespace-nowrap" {!! $action['attributes'] ?? null !!}>
                                     <a href="{{ $action['url'] }}" x-data="{ clicked: false }" x-on:click="clicked = true;" x-bind:class="{ 'pointer-events-none': clicked }" class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100">
                                         {{ $action['title'] }}
                                     </a>
