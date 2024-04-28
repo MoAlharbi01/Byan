@@ -46,7 +46,7 @@
     @stack('choose_button_start')
 
     <div class="w-full flex items-center text-black px-2 h-9 leading-9 whitespace-nowrap">
-        <button type="button" @click="onTemplate" class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100">
+        <button type="button" @click="onTemplate" class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100 text-black">
             {{ trans('general.form.choose', ['field' => trans_choice('general.templates', 1)]) }}
         </button>
     </div>

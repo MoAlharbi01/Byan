@@ -38,7 +38,7 @@ class Tailwind extends Presenter
                     <a class="' . $this->getClass($item) . '' . $this->getActiveState($item) . '" href="' . $item->getUrl() . '" ' . $item->getAttributes() . '>
                         ' . $this->getIcon($item) . '
                         ' . $item->title . '
-                        <span class="bg-purple absolute h-5 -right-5 rounded-tl-lg rounded-bl-lg opacity-0 group-hover:opacity-100 transition-all pointer-events-none" style="width: 5px;"></span>
+                        <span class="bg-white absolute h-5 -right-5 rounded-tl-lg rounded-bl-lg opacity-0 group-hover:opacity-100 transition-all pointer-events-none" style="width: 5px;"></span>
                     </a>
                 </li>'
                 . PHP_EOL;
@@ -104,7 +104,7 @@ class Tailwind extends Presenter
         return '
         <details ' . $this->getActiveStateOnChild($item) . '>
             <summary class="block" href="#navbar-' . $id . '">
-                <div class="relative pb-2.5 flex items-center cursor-pointer text-purple text-sm">
+                <div class="relative pb-2.5 flex items-center cursor-pointer text-white text-sm">
                     ' . $this->getIcon($item) . '
                     ' . $item->title . '
                     ' . $this->getChevron($item) . '
@@ -135,7 +135,7 @@ class Tailwind extends Presenter
                         <div class="pb-2.5 flex items-center cursor-pointer text-purple text-sm ' . $this->getActiveState($item) . '">
                             ' . $this->getIcon($item) . '
                             ' . $item->title . '
-                            <span class="bg-purple absolute h-5 -right-5 rounded-tl-lg rounded-bl-lg opacity-0 group-hover:opacity-100 transition-all pointer-events-none" style="width: 5px;"></span>
+                            <span class="bg-white absolute h-5 -right-5 rounded-tl-lg rounded-bl-lg opacity-0 group-hover:opacity-100 transition-all pointer-events-none" style="width: 5px;"></span>
                             ' . $this->getChevron($item) . '
                         </div>
                     </summary>

@@ -3,7 +3,7 @@
 
     @if ($keyword)
         <button type="button" class="absolute ltr:right-2 rtl:left-2 top-2 clear" wire:click="resetKeyword">
-            <span class="material-icons text-sm">close</span>
+            <span class="material-icons text-sm text-black">close</span>
         </button>
     @endif
 

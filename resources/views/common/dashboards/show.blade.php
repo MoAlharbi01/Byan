@@ -78,7 +78,7 @@
                             <x-button
                                 type="button"
                                 id="show-more-actions-add-widget"
-                                class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100"
+                                class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100 text-black"
                                 override="class"
                                 title="{{ trans('general.title.add', ['type' => trans_choice('general.widgets', 1)]) }}"
                                 @click="onCreateWidget()"

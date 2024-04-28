@@ -10,7 +10,7 @@
     @if ($slot->isNotEmpty())
         {!! $slot !!}
     @else
-        <span class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100">{!! $label !!}</span>
+        <span class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100 text-black">{!! $label !!}</span>
     @endif
 @else
 <button

@@ -38,7 +38,7 @@
                     @switch($type)
                         @case('button')
                             <button type="button" class="w-full flex items-center text-purple px-2 h-9 leading-9" {!! $action['attributes'] ?? null !!}>
-                                <div class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100">
+                                <div class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100 text-black">
                                     <span class="material-icons-outlined text-purple text-lg ltr:mr-2 rtl:ml-2 pointer-events-none">
                                         {{ $action['icon'] }}
                                     </span>
@@ -61,7 +61,7 @@
 
                         @default
                             <a href="{{ $action['url'] }}" class="w-full flex items-center text-purple px-2 h-9 leading-9" {!! $action['attributes'] ?? null !!}>
-                                <div class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100">
+                                <div class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100 text-black">
                                     <span class="material-icons-outlined text-purple text-lg ltr:mr-2 rtl:ml-2 pointer-events-none">
                                         {{ $action['icon'] }}
                                     </span>
@@ -101,7 +101,7 @@
                             @php $divider = false; @endphp
 
                             <button type="button" class="w-full flex items-center text-purple px-2 h-9 leading-9" {!! $action['attributes'] ?? null !!}>
-                                <div class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100">
+                                <div class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100 text-black">
                                     <span class="material-icons-outlined text-purple text-lg ltr:mr-2 rtl:ml-2 pointer-events-none">
                                         {{ $action['icon'] }}
                                     </span>
@@ -137,7 +137,7 @@
                             @php $divider = false; @endphp
 
                             <a href="{{ $action['url'] }}" class="w-full flex items-center text-purple px-2 h-9 leading-9" {!! $action['attributes'] ?? null !!}>
-                                <div class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100">
+                                <div class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100 text-black">
                                     <span class="material-icons-outlined text-purple text-lg ltr:mr-2 rtl:ml-2 pointer-events-none">
                                         {{ $action['icon'] }}
                                     </span>

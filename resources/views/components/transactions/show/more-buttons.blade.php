@@ -34,7 +34,7 @@
                     <button
                         type="button"
                         id="show-more-actions-connect-{{ $transaction->type }}"
-                        class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100"
+                        class="w-full h-full flex items-center rounded-md px-2 text-sm hover:bg-lilac-100 text-black"
                         title="{{ trans('general.connect') }}"
                         @click="onConnectTransactions('{{ route('transactions.dial', $transaction->id) }}')">
                             {{ trans('general.connect') }}

@@ -72,7 +72,7 @@
                                             @endfor
 
                                             @for ($i = $module->vote; $i < 5; $i++)
-                                                <i class="material-icons text-sm">star_border</i>
+                                                <i class="material-icons text-sm text-black">star_border</i>
                                             @endfor
                                         </div>
 
