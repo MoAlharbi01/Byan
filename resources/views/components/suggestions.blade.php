@@ -1,4 +1,4 @@
-@foreach($suggestions as $suggestion)
+<!-- @foreach($suggestions as $suggestion)
     <x-link
         href="{{ url($suggestion->action_url) . '?' . http_build_query((array) $suggestion->action_parameters) }}"
         id="suggestion-{{ $suggestion->alias }}-{{ str_replace('.', '-', request()->route()->getName()) }}"
@@ -8,4 +8,4 @@
     >
         {{ $suggestion->name }}
     </x-link>
-@endforeach
+@endforeach -->
