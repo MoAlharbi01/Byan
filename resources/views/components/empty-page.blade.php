@@ -46,7 +46,7 @@
 
             @if (! empty($suggestions))
                 @foreach ($suggestions as $suggestion) 
-                    <li class="border-b p-2  hover:bg-gray-100">
+                    <!-- <li class="border-b p-2  hover:bg-gray-100">
                         <x-link href="{{ url($suggestion->action_url) . '?' . http_build_query((array) $suggestion->action_parameters) }}" class="flex items-center justify-between text-xs" override="class">
                             <div class="truncate">
                                 <h2>
@@ -60,7 +60,7 @@
 
                             <span class="material-icons text-gray-500 rtl:rotate-180">chevron_right</span>
                         </x-link>
-                    </li>
+                    </li> -->
                 @endforeach
             @endif
         </ul>

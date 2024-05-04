@@ -7,7 +7,7 @@
                 {{ $icons[$report->id] }}
             </span>
             
-            <div class="h-10 font-medium text-sm mt-2">
+            <div class="h-10 font-medium text-sm mt-2 text-black">
                 <x-link.hover group-hover>
                     {!! $report->name !!}
                 </x-link.hover>

@@ -301,7 +301,7 @@
                                 </div>
                             </div>
                         @else
-                            <div class="text-sm text-muted" id="datatable-basic_info" role="status" aria-live="polite">
+                            <div class="text-sm text-muted text-black" id="datatable-basic_info" role="status" aria-live="polite">
                                 <small>{{ trans('general.no_records') }}</small>
                             </div>
                         @endif
