@@ -107,6 +107,8 @@ return [
     'to'                    => 'إلى',
     'print'                 => 'طباعة',
     'search'                => 'بحث',
+    'New'                   => 'جديد',
+    'notifications'         => 'إشعارات',
     'search_placeholder'    => 'اكتب للبحث..',
     'filter'                => 'تصفية',
     'help'                  => 'مساعدة',
