@@ -35,7 +35,7 @@
                                 @php $is_active = true; @endphp
 
                                 <div class="{{ count($payment_methods) > 3 ? 'swiper swiper-links': 'w-full flex' }}">
-                                    <div class="{{ count($payment_methods) > 3 ? 'swiper-wrapper' : 'inline-flex' }}">
+                                    <div class="{{ count($payment_methods) > 3 ? 'swiper-wrapper' : 'inline-flex' }} text-black">
                                         @foreach ($payment_methods as $key => $name)
                                             @stack('invoice_{{ $key }}_tab_start')
                                                 <div
@@ -70,7 +70,7 @@
                                 @stack('invoice_{{ $key }}_content_start')
                                     <div
                                         x-bind:class="active != '{{ $name }}' ? 'hidden': 'block'"
-                                        class="my-3"
+                                        class="my-3 text-black"
                                         id="tabs-payment-method-{{ $key }}"
                                     >
                                         <component v-bind:is="method_show_html" @interface="onRedirectConfirm"></component>

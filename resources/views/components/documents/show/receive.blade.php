@@ -11,7 +11,7 @@
     </x-slot>
 
     <x-slot name="body">
-        <div class="flex flex-wrap space-x-3 rtl:space-x-reverse">
+        <div class="flex flex-wrap space-x-3 rtl:space-x-reverse text-black">
             @if (! $hideMarkReceived)
                 @can($permissionUpdate)
                     @if ($document->status == 'draft')
