@@ -27,7 +27,7 @@
                 @switch($type)
                     @case('button')
                         <button type="button" class="relative bg-white hover:bg-gray-100 border py-0.5 px-1 cursor-pointer index-actions group/tooltip" {!! $action['attributes'] ?? null !!}>
-                            <span class="material-icons-outlined text-purple text-lg pointer-events-none">
+                            <span class="material-icons-outlined text-black text-lg pointer-events-none">
                                 {{ $action['icon'] }}
                             </span>
 
@@ -51,7 +51,7 @@
 
                     @default
                         <a href="{{ $action['url'] }}" x-data="{ clicked: false }" x-on:click="clicked = true;" x-bind:class="{ 'pointer-events-none': clicked }" class="relative bg-white hover:bg-gray-100 border py-0.5 px-1 cursor-pointer index-actions group/tooltip" {!! $action['attributes'] ?? null !!}>
-                            <span class="material-icons-outlined text-purple text-lg pointer-events-none">
+                            <span class="material-icons-outlined text-black text-lg pointer-events-none">
                                 {{ $action['icon'] }}
                             </span>
 
