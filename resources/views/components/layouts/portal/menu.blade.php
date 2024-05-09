@@ -77,11 +77,11 @@
                 </button>
             </x-tooltip>
 
-            <x-tooltip id="tooltip-support" placement="right" message="{{ trans('general.help') }}">
+            <!-- <x-tooltip id="tooltip-support" placement="right" message="{{ trans('general.help') }}">
                 <x-link href="{{ url(trans('header.support_link')) }}" target="_blank" class="flex items-center justify-center w-8 h-8 mb-2.5 cursor-pointer js-menu-toggles" override="class">
                     <span class="material-icons-outlined text-purple text-2xl pointer-events-none">support</span>
                 </x-link>
-            </x-tooltip>
+            </x-tooltip> -->
         </div>
 
         <livewire:menu.favorites />
