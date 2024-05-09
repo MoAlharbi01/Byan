@@ -14,6 +14,13 @@ use App\Jobs\Document\SendDocument;
 use App\Jobs\Document\UpdateDocument;
 use App\Models\Document\Document;
 use App\Traits\Documents;
+use Carbon\Carbon;
+use Salla\ZATCA\GenerateQrCode;
+use Salla\ZATCA\Tags\InvoiceDate;
+use Salla\ZATCA\Tags\InvoiceTaxAmount;
+use Salla\ZATCA\Tags\InvoiceTotalAmount;
+use Salla\ZATCA\Tags\Seller;
+use Salla\ZATCA\Tags\TaxNumber;
 
 class Invoices extends Controller
 {
@@ -30,7 +37,7 @@ class Invoices extends Controller
     {
         $this->setActiveTabForDocuments();
 
-        $invoices = Document::invoice()->with('contact', 'items', 'item_taxes', 'last_history', 'transactions', 'totals', 'histories', 'media')->collect(['document_number'=> 'desc']);
+        $invoices = Document::invoice()->with('contact', 'items', 'item_taxes', 'last_history', 'transactions', 'totals', 'histories', 'media')->collect(['document_number' => 'desc']);
 
         $total_invoices = Document::invoice()->count();
 
@@ -40,12 +47,23 @@ class Invoices extends Controller
     /**
      * Show the form for viewing the specified resource.
      *
-     * @param  Document $invoice
+     * @param Document $invoice
      *
      * @return Response
      */
     public function show(Document $invoice)
     {
+        $qrCode = GenerateQrCode::fromArray([
+            new Seller(setting('company.name')), // seller name
+            new TaxNumber(setting('company.tax_number')), // seller tax number
+            new InvoiceDate($invoice->issued_at->format('Y-m-d\TH:i:s\Z')), // invoice date as Zulu ISO8601 @see https://en.wikipedia.org/wiki/ISO_8601
+            new InvoiceTotalAmount($invoice->amount_due), // invoice total amount
+            new InvoiceTaxAmount($invoice->amount - $invoice->amount_without_tax) // invoice tax amount
+            // TODO :: Support others tags
+        ])->render();
+
+        $invoice->qrCode=$qrCode;
+
         return view('sales.invoices.show', compact('invoice'));
     }
 
@@ -62,7 +80,7 @@ class Invoices extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param Request $request
      *
      * @return Response
      */
@@ -96,7 +114,7 @@ class Invoices extends Controller
     /**
      * Duplicate the specified resource.
      *
-     * @param  Document $invoice
+     * @param Document $invoice
      *
      * @return Response
      */
@@ -114,7 +132,7 @@ class Invoices extends Controller
     /**
      * Import the specified resource.
      *
-     * @param  ImportRequest  $request
+     * @param ImportRequest $request
      *
      * @return Response
      */
@@ -138,7 +156,7 @@ class Invoices extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Document $invoice
+     * @param Document $invoice
      *
      * @return Response
      */
@@ -150,8 +168,8 @@ class Invoices extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Document $invoice
-     * @param  Request  $request
+     * @param Document $invoice
+     * @param Request $request
      *
      * @return Response
      */
@@ -185,7 +203,7 @@ class Invoices extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Document $invoice
+     * @param Document $invoice
      *
      * @return Response
      */
@@ -221,7 +239,7 @@ class Invoices extends Controller
     /**
      * Mark the invoice as sent.
      *
-     * @param  Document $invoice
+     * @param Document $invoice
      *
      * @return Response
      */
@@ -239,7 +257,7 @@ class Invoices extends Controller
     /**
      * Mark the invoice as cancelled.
      *
-     * @param  Document $invoice
+     * @param Document $invoice
      *
      * @return Response
      */
@@ -257,7 +275,7 @@ class Invoices extends Controller
     /**
      * Restore the invoice.
      *
-     * @param  Document $invoice
+     * @param Document $invoice
      *
      * @return Response
      */
@@ -275,7 +293,7 @@ class Invoices extends Controller
     /**
      * Download the PDF file of invoice.
      *
-     * @param  Document $invoice
+     * @param Document $invoice
      *
      * @return Response
      */
@@ -303,7 +321,7 @@ class Invoices extends Controller
     /**
      * Print the invoice.
      *
-     * @param  Document $invoice
+     * @param Document $invoice
      *
      * @return Response
      */
@@ -319,7 +337,7 @@ class Invoices extends Controller
     /**
      * Download the PDF file of invoice.
      *
-     * @param  Document $invoice
+     * @param Document $invoice
      *
      * @return Response
      */
