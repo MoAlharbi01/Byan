@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div class="w-full lg:w-1/2">
+            <div class="w-full lg:w-1/2 text-black">
                 <img src="{{ $cta->thumb->path_string }}" alt="{{ $cta->thumb->alt_attribute }}" />
             </div>
         </div>
