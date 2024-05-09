@@ -59,7 +59,7 @@
                         <div class="flex items-end lg:justify-end xl:justify-start col-span-10 xl:col-span-2">
                             <x-button
                                 type="button"
-                                class="w-full px-3 py-2 bg-transparent hover:bg-purple text-black hover:text-white rounded-lg border border-purple"
+                                class="w-full px-3 py-2 bg-transparent hover:bg-white text-black rounded-lg border border-purple"
                                 override="class"
                                 @click="onReconcilition"
                             >
@@ -301,7 +301,7 @@
                                 </div>
                             </div>
                         @else
-                            <div class="text-sm text-muted" id="datatable-basic_info" role="status" aria-live="polite">
+                            <div class="text-sm text-muted text-black" id="datatable-basic_info" role="status" aria-live="polite">
                                 <small>{{ trans('general.no_records') }}</small>
                             </div>
                         @endif

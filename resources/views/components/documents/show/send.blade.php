@@ -11,7 +11,7 @@
     </x-slot>
 
     <x-slot name="body">
-        <div class="flex flex-wrap space-x-3 rtl:space-x-reverse">
+        <div class="flex flex-wrap space-x-3 rtl:space-x-reverse text-black">
             @if (! $hideEmail)
                 @if ($document->contact->has_email)
                     @if ($document->status != 'cancelled')
@@ -57,7 +57,7 @@
             @endif
 
             @if ($histories->count())
-                <div class="text-xs mt-6" style="margin-left: 0 !important;">
+                <div class="text-xs mt-6 text-black" style="margin-left: 0 !important;">
                     <span class="font-medium">
                         {{ trans_choice('general.histories', 1) }}:
                     </span>

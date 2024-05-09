@@ -30,7 +30,7 @@
                     @endif
                 </span>
 
-                <div class="w-full lg:w-1/2">
+                <div class="w-full lg:w-1/2 text-black">
                     <p class="text-sm lh-160">
                         {!! nl2br($review->text) !!}
                     </p>

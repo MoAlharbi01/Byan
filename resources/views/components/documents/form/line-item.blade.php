@@ -330,7 +330,7 @@
                                     >
                                         <template #option="{option}">
                                             <span class="tax-group flex items-center">
-                                                <span class="float-left">
+                                                <span class="float-left text-black">
                                                     @{{ option.value }}
                                                 </span>
 
@@ -433,7 +433,7 @@
                                     >
                                         <template #option="{option}">
                                             <span class="tax-group flex items-center">
-                                                <span class="float-left">
+                                                <span class="float-left text-black">
                                                     @{{ option.value }}
                                                 </span>
 

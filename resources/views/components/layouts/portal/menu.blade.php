@@ -6,8 +6,8 @@
     <span class="material-icons text-black js-hamburger-menu">menu</span>
 
     <div class="flex items-center m-auto">
-        <img src="{{ asset('public/img/akaunting-logo-green.svg') }}" class="w-8 m-auto" alt="Akaunting" />
-        <span class="ltr:ml-2 rtl:mr-2">{{ Str::limit(setting('company.name'), 22) }}</span>
+        <img src="{{ asset('public/img/Software-small-logo-empty.png') }}" class="w-8 m-auto" alt="Akaunting" />
+        <span class="ltr:ml-2 rtl:mr-2 text-black">{{ Str::limit(setting('company.name'), 22) }}</span>
     </div>
 </div>
 
@@ -77,11 +77,11 @@
                 </button>
             </x-tooltip>
 
-            <x-tooltip id="tooltip-support" placement="right" message="{{ trans('general.help') }}">
+            <!-- <x-tooltip id="tooltip-support" placement="right" message="{{ trans('general.help') }}">
                 <x-link href="{{ url(trans('header.support_link')) }}" target="_blank" class="flex items-center justify-center w-8 h-8 mb-2.5 cursor-pointer js-menu-toggles" override="class">
                     <span class="material-icons-outlined text-purple text-2xl pointer-events-none">support</span>
                 </x-link>
-            </x-tooltip>
+            </x-tooltip> -->
         </div>
 
         <livewire:menu.favorites />

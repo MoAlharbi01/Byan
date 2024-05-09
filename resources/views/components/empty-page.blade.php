@@ -1,5 +1,5 @@
 <div class="flex flex-col lg:flex-row">
-    <div class="w-full lg:w-1/2">
+    <div class="w-full lg:w-1/2 text-black">
         <div class="border-b px-2 pb-3">
             <h1 class="flex items-center text-2xl xl:text-5xl text-black font-light -ml-0.5">
                 <x-title>
@@ -46,7 +46,7 @@
 
             @if (! empty($suggestions))
                 @foreach ($suggestions as $suggestion) 
-                    <li class="border-b p-2  hover:bg-gray-100">
+                    <!-- <li class="border-b p-2  hover:bg-gray-100">
                         <x-link href="{{ url($suggestion->action_url) . '?' . http_build_query((array) $suggestion->action_parameters) }}" class="flex items-center justify-between text-xs" override="class">
                             <div class="truncate">
                                 <h2>
@@ -60,7 +60,7 @@
 
                             <span class="material-icons text-gray-500 rtl:rotate-180">chevron_right</span>
                         </x-link>
-                    </li>
+                    </li> -->
                 @endforeach
             @endif
         </ul>

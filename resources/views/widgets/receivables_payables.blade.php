@@ -12,7 +12,7 @@
     </div>
 
     <div class="flex">
-        <div class="ltr:mr-4 rtl:ml-4">
+        <div class="ltr:mr-4 rtl:ml-4 text-black">
             <span @class(['flex', 'text-sm', 'text-orange' => $has_progress, 'text-black' => ! $has_progress])>
                 {{ trans('general.open') }}
             </span>

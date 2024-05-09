@@ -7,7 +7,7 @@
         v-if="bulk_action.show"
     >
         <div class="mr-6">
-            <span class="text-sm hidden sm:block">
+            <span class="text-sm hidden sm:block text-black">
                 <span v-text="bulk_action.count"></span>
                 <span v-if="bulk_action.count === 1">
                     {{ strtolower(trans_choice($text, 1)) }}
@@ -19,7 +19,7 @@
             </span>
         </div>
 
-        <div class="relative flex items-center ltr:mr-4 rtl:ml-4" v-if="bulk_action.count">
+        <div class="relative flex items-center ltr:mr-4 rtl:ml-4 text-black" v-if="bulk_action.count">
             @foreach ($actions as $key => $action)
                 @if (! empty($action['icon']))
                     <div>
@@ -55,7 +55,7 @@
             @endforeach
         </div>
 
-        <div class="ltr:mr-4 rtl:ml-4" v-if="bulk_action.count">
+        <div class="ltr:mr-4 rtl:ml-4 text-black" v-if="bulk_action.count">
             <x-button @click="onClearBulkAction" class="bg-transparent" override="class">
                 <x-button.hover>
                     {{ trans('general.clear') }}
