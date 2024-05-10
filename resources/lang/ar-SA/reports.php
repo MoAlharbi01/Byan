@@ -12,6 +12,7 @@ return [
     'income_expense_summary'        => 'الإيرادات مقابل المصروفات',
     'tax_summary'                   => 'ملخص الضرائب',
     'gross_profit'                  => 'إجمالي الربح',
+    'profit_loss'                   => 'الارباح و الخسائر',
     'net_profit'                    => 'صافي الربح',
     'total_expenses'                => 'إجمالي المصروفات',
     'net'                           => 'صافي الدخل',

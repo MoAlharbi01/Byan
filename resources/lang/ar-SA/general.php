@@ -16,6 +16,10 @@ return [
     'recurring_transactions'=> 'المعاملات المتكررة|المعاملات المتكررة',
     'recurring_templates'   => 'القالب المتكرر|القوالب المتكررة',
     'vendors'               => 'المورد|الموردين',
+    'outgoing'              => 'الصادر',
+    'preferences'                   => 'التفضيلات',
+    'incoming'              => 'الوارد',
+    'open'                  => 'يفتح',
     'accounts'              => 'الحساب|الحسابات',
     'transfers'             => 'التحويل|التحويلات',
     'transactions'          => 'العملية|العمليات',
@@ -204,6 +208,15 @@ return [
         ],
         'add_new'           => 'إضافة :field جديد',
         'no_file_selected'  => 'لم يتم اختيار أي ملف...',
+    ],
+
+    'placeholder' => [
+        'search'            => 'اكتب للبحث..',
+        'search_and_filter' => 'بحث أو تصفية النتائج..',
+        'select_and_filter' => 'حدد أحد الخيارات المتاحة أدناه',
+        'enter_and_filter'  => 'اضغط على زر الإدخال لتصفية النتائج، أو قم بتعيين مرشح جديد',
+        'contact_search'    => 'اكتب :اكتب الاسم',
+        'item_search'       => 'اكتب اسم العنصر',
     ],
 
     'date_range' => [

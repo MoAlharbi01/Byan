@@ -84,7 +84,7 @@
                                 <x-table.td class="w-4/12" kind="right">
                                     <div class="space-x-2">
                                         @foreach($item->roles as $role)
-                                            <span class="bg-lilac-900 px-2 py-0.5 test-xs rounded-lg text-black">
+                                            <span class="bg-white px-2 py-0.5 test-xs rounded-lg text-black">
                                                 {{ $role->display_name }}
                                             </span>
                                         @endforeach
