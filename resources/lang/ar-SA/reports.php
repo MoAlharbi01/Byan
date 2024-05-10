@@ -4,6 +4,7 @@ return [
 
     'years'                         => 'سنة/سنوات',
     'date_range'                    => 'فترة التاريخ',
+    'this_year'                     => 'هذا العام',
     'preferences'                   => 'التفضيل|التفضيلات',
     'profit_loss'                   => 'الربح والخسارة',
     'income_summary'                => 'ملخص الإيرادات',

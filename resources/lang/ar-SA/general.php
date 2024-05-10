@@ -209,6 +209,7 @@ return [
         'last_days' => 'آخر %d أيام',
         'this_month' => 'هذا الشهر',
         'last_month' => 'الشهر الماضي',
+        'this_year'         => 'هذا العام',
     ],
 
     'empty' => [
