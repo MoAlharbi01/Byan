@@ -23,6 +23,9 @@ return [
     'latest_income'          => 'آخر الإيرادات',
     'latest_expenses'        => 'آخر المصاريف',
     'profit_loss'            => 'الارباح و الخسائر',
+    'view_report'               => 'عرض التقرير',
+    'total_unpaid_invoices'     => 'إجمالي الفواتير غير المدفوعة',
+    'total_unpaid_bills'        => 'إجمالي الفواتير غير المدفوعة',
     'description' => [
         'profit_loss'        => 'الإيرادات والمصروفات بما في ذلك الفواتير والفواتير غير المدفوعة',
         'cash_flow'             => 'النقد الذي يأتي ويخرج من عملك',
