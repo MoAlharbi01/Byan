@@ -1,4 +1,4 @@
-<div class="print-template">
+<div class="print-template text-black">
     @stack('details_start')
     <table style="width: 100%;">
         <tr>

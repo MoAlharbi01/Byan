@@ -1,4 +1,4 @@
-<div class="print-template">
+<div class="print-template text-black">
     @stack('company_start')
     @if (! $hideCompany)
         <table class="border-bottom-1">

@@ -105,7 +105,7 @@
                                 <x-table.td class="w-2/12" hidden-mobile>
                                     @if ($item->taxes->count())
                                         @foreach($item->taxes as $tax)
-                                            <span class="bg-lilac-900 px-3 py-1 text-sm rounded-lg text-black ltr:mr-3 rtl:ml-3">
+                                            <span class="bg-white px-3 py-1 text-sm rounded-lg text-black ltr:mr-3 rtl:ml-3">
                                                 {{ $tax->tax->name }}
                                             </span>
                                         @endforeach

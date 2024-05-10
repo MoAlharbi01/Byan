@@ -1,4 +1,4 @@
-<div class="print-template">
+<div class="print-template text-black">
     <div class="row">
         <div class="col-100">
             <div class="text text-dark">

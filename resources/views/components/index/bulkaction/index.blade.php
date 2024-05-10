@@ -56,7 +56,7 @@
         </div>
 
         <div class="ltr:mr-4 rtl:ml-4 text-black" v-if="bulk_action.count">
-            <x-button @click="onClearBulkAction" class="bg-transparent" override="class">
+            <x-button @click="onClearBulkAction" class="bg-transparent text-white" override="class">
                 <x-button.hover>
                     {{ trans('general.clear') }}
                 </x-button.hover>
