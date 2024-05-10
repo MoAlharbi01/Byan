@@ -128,6 +128,9 @@ return [
             'encryption'    => 'نوع تشفير SMTP',
             'none'          => 'لا يوجد',
         ],
+        'form_description' => [
+            'general'                   => 'أرسل رسائل بريد إلكتروني منتظمة إلى فريقك وجهات الاتصال الخاصة بك. يمكنك ضبط إعدادات البروتوكول وSMTP.',
+        ],
         'sendmail'          => 'Sendmail',
         'sendmail_path'     => 'مسار Sendmail',
         'log'               => 'سجل الرسائل الإلكترونية',
