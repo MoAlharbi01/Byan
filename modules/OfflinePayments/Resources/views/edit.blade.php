@@ -85,7 +85,7 @@
                                                     class="relative bg-white hover:bg-gray-100 border py-0.5 px-1 cursor-pointer index-actions group"
                                                     override="class"
                                                     @click="onEdit('{{ $item->code }}')">
-                                                    <span class="material-icons-outlined text-purple text-lg">edit</span>
+                                                    <span class="material-icons-outlined text-black text-lg">edit</span>
                                                     <div class="inline-block absolute invisible z-20 py-1 px-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 shadow-sm opacity-0 tooltip-content -top-10 -left-2" data-tooltip-placement="top">
                                                         <span>{{ trans('general.edit') }}</span>
                                                         <div class="absolute w-2 h-2 -bottom-1 before:content-[' '] before:absolute before:w-2 before:h-2 before:bg-white before:border-gray-200 before:transform before:rotate-45 before:border before:border-t-0 before:border-l-0" data-popper-arrow></div>
@@ -102,7 +102,7 @@
                                                     data-code="{{ $item->code }}"
                                                     v-bind:disabled="update_code === '{{ $item->code }}'"
                                                     @click="confirmDelete('{{ $item->code }}', '{{ trans('general.delete') }}', '{{ trans('general.delete_confirm', ['name' => '<strong>' . $item->name . '</strong>', 'type' => mb_strtolower(trans('offline-payments::general.name'))]) }}', '{{ trans('general.cancel') }}', '{{ trans('general.delete') }}')">
-                                                    <span class="material-icons-outlined text-purple text-lg">delete</span>
+                                                    <span class="material-icons-outlined text-black text-lg">delete</span>
                                                     <div class="inline-block absolute invisible z-20 py-1 px-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 shadow-sm opacity-0 tooltip-content -top-10 -left-2" data-tooltip-placement="top">
                                                         <span>{{ trans('general.delete') }}</span>
                                                         <div class="absolute w-2 h-2 -bottom-1 before:content-[' '] before:absolute before:w-2 before:h-2 before:bg-white before:border-gray-200 before:transform before:rotate-45 before:border before:border-t-0 before:border-l-0" data-popper-arrow></div>

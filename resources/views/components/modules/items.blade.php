@@ -10,7 +10,7 @@
 
         @if ($attributes->has('route'))
             <div class="flex justify-center items-center group">
-                <x-link href="{{ route($attributes->get('route')) }}" class="bg-transparent" override="class">
+                <x-link href="{{ route($attributes->get('route')) }}" class="bg-transparent text-white" override="class">
                     <x-link.hover group-hover>
                         {{ trans('modules.see_all_type', ['type' => $attributes->get('title')]) }}
                     </x-link.hover>

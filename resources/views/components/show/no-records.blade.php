@@ -14,14 +14,14 @@
             'text-right py-4 lg:py-0 px-4 space-y-2',
         ])
     >
-        <p class="mb-5">
+        <p class="mb-5 text-white">
             {!! $description !!}
         </p>
 
         @if (! empty($button) && $button->isNotEmpty())
             {!! $button !!}
         @else
-            <x-link href="{!! $url !!}" class="bg-transparent" override="class">
+            <x-link href="{!! $url !!}" class="bg-transparent text-white" override="class">
                 <x-link.hover color="to-white">
                     {{ $textAction }}
                 </x-link.hover>

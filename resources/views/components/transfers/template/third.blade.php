@@ -1,4 +1,4 @@
-<div class="print-template">
+<div class="print-template text-black">
     <table class="border-bottom-1" style="width: 100%;">
         <tbody>
             <tr>

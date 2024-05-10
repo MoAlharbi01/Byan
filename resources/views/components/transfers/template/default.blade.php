@@ -1,4 +1,4 @@
-<div class="print-template">
+<div class="print-template text-black">
     @stack('from_account_start')
     <table class="border-bottom-1">
         <tbody>

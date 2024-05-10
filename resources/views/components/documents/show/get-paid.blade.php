@@ -7,7 +7,7 @@
     </x-slot>
 
     <x-slot name="body" class="block" override="class">
-        <div class="flex flex-wrap space-x-3 rtl:space-x-reverse text-black">
+        <!-- <div class="flex flex-wrap space-x-3 rtl:space-x-reverse text-black">
             @stack('timeline_get_paid_body_button_payment_start')
 
             @if (! $hideAddPayment)
@@ -55,7 +55,7 @@
                     </x-link.hover>
                 </x-link>
             @endif
-        </div>
+        </div> -->
 
         <div class="text-xs mt-6 text-black" style="margin-left: 0 !important;">
             <span class="font-medium">

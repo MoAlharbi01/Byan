@@ -1,4 +1,4 @@
-<div class="w-full lg:w-7/12 flex items-center">
+<div class="w-full lg:w-7/12 flex items-center text-black">
     @if (! empty($slot) && $slot->isNotEmpty())
         {!! $slot !!}
     @elseif (! empty($items))
