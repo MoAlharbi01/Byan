@@ -96,6 +96,7 @@ return [
     'manage'                => 'إدارة',
     'code'                  => 'الرمز',
     'alias'                 => 'اسم مستعار',
+    'download_pdf'          => 'تحميل ملف PDF',
     'balance'               => 'الرصيد',
     'reference'             => 'مرجع',
     'attachment'            => 'المرفق',
