@@ -80,6 +80,7 @@ return [
         'default'           => 'الافتراضي',
         'classic'           => 'كلاسيكي',
         'modern'            => 'عصري',
+        'column'            => 'عمودي',
         'hide'              => [
             'item_name'         => 'إخفاء أسم الصنف',
             'item_description'  => 'إخفاء وصف الصنف',
