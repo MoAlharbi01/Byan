@@ -109,6 +109,8 @@ return [
     'search'                => 'بحث',
     'New'                   => 'جديد',
     'notifications'         => 'إشعارات',
+    'countries'             => 'البلد|البلدان',
+    'cities'                => 'بلدة / مدينة|بلدان / مدن',
     'search_placeholder'    => 'اكتب للبحث..',
     'filter'                => 'تصفية',
     'help'                  => 'مساعدة',
