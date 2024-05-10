@@ -168,7 +168,7 @@
         <div class="flex items-center mb-3">
             <span name="notifications" class="material-icons-outlined w-8 h-8 flex items-center justify-center text-purple text-2xl pointer-events-none">notifications</span>
 
-            <div class="text-black ltr:ml-1 rtl:mr-1">
+            <div class="text-white ltr:ml-1 rtl:mr-1">
                 {{ trans_choice('general.your_notifications', 2) }}
             </div>
         </div>
