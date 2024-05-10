@@ -11,7 +11,7 @@
             {!! $label !!}
         </x-form.label>
 
-        <div class="flex items-center mt-1">
+        <div class="flex items-center mt-1 text-black">
             @if (empty($attributes['disabled']))
                 <label class="relative w-10 ltr:rounded-tl-lg ltr:rounded-bl-lg rtl:rounded-tr-lg rtl:rounded-br-lg py-2 px-1 text-sm text-center transition-all cursor-pointer" @click="form.{{ $name }}=1; @if(isset($attributes['change'])) {!! $attributes['change'] !!} @endif" v-bind:class="[form.{{ $name }} == 1 ? ['bg-green-500','text-white'] : 'bg-black-100']">
                     {{ empty($enable) ? trans('general.yes') : $enable }}
