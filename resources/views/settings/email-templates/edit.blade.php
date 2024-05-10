@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="sm:col-span-6">
-                                    <div class="bg-gray-200 rounded-md p-3">
+                                    <div class="bg-gray-200 rounded-md p-3 text-black">
                                         <small v-html='tags' v-if='tags != null'></small>
                                         <small v-if='tags == null'>
                                             {!! trans('settings.email.templates.tags', ['tag_list' => implode(', ', app($template->class)->getTags())]) !!}
