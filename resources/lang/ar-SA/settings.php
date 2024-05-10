@@ -134,6 +134,9 @@ return [
         'sendmail'          => 'Sendmail',
         'sendmail_path'     => 'مسار Sendmail',
         'log'               => 'سجل الرسائل الإلكترونية',
+        'email_service'                 => 'خدمة البريد الإلكتروني',
+        'email_templates'               => 'قوالب البريد الإلكتروني',
+
 
         'templates' => [
             'subject'                   => 'الموضوع',
