@@ -20,6 +20,7 @@ return [
     'preferences'                   => 'التفضيلات',
     'unpaid'                => 'غير مدفوعة الأجر',
     'incoming'              => 'الوارد',
+    'last_sent'             => 'آخر إرسال :date',
     'open'                  => 'يفتح',
     'accounts'              => 'الحساب|الحسابات',
     'transfers'             => 'التحويل|التحويلات',
