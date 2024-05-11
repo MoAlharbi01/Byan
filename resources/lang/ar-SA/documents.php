@@ -80,14 +80,14 @@ return [
     ],
 
     'messages' => [
-        'email_sent'            => ':type email has been sent!',
-        'restored'              => ':type has been restored!',
-        'marked_as'             => ':type marked as :status!',
-        'marked_sent'           => ':type marked as sent!',
-        'marked_paid'           => ':type marked as paid!',
-        'marked_viewed'         => ':type marked as viewed!',
-        'marked_cancelled'      => ':type marked as cancelled!',
-        'marked_received'       => ':type marked as received!',
+        'email_sent'            => ':type تم ارسال البريد الالكتروني!',
+        'restored'              => ':type تم إسترجاعة!',
+        'marked_as'             => ':type تم وضع علامة على أنها :status!',
+        'marked_sent'           => ':type تم وضع علامة على أنها أرسلت!',
+        'marked_paid'           => ':type تم وضع علامة على أنها مدفوعة!',
+        'marked_viewed'         => ':type تم وضع علامة كما تم عرضها!',
+        'marked_cancelled'      => ':type تم وضع علامة على أنها ملغاة!',
+        'marked_received'       => ':type تم وضع علامة كما وردت!',
     ],
 
     'recurring' => [
