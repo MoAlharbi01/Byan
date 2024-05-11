@@ -92,6 +92,7 @@ return [
     'delete'                => 'حذف',
     'send'                  => 'إرسال',
     'share'                 => 'شارك',
+    'share_link'            => 'مشاركة الرابط',
     'download'              => 'تحميل',
     'delete_confirm'        => 'تأكيد حذف :name :type؟',
     'name'                  => 'الاسم',
