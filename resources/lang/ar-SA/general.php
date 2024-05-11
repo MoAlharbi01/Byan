@@ -18,6 +18,7 @@ return [
     'vendors'               => 'المورد|الموردين',
     'outgoing'              => 'الصادر',
     'preferences'                   => 'التفضيلات',
+    'unpaid'                => 'غير مدفوعة الأجر',
     'incoming'              => 'الوارد',
     'open'                  => 'يفتح',
     'accounts'              => 'الحساب|الحسابات',
