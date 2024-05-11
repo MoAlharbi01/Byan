@@ -176,6 +176,7 @@ return [
     'zip_code'              => 'الرمز البريدي',
     'financial_year'        => 'السنة المالية',
     'your_notifications'    => 'إشعارك|إشعاراتك',
+    'create'                => 'إنشاء',
 
     'card' => [
         'name'                  => 'الإسم على البطاقة',
