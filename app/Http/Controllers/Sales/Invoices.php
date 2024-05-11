@@ -59,7 +59,6 @@ class Invoices extends Controller
             new InvoiceDate($invoice->issued_at->format('Y-m-d\TH:i:s\Z')), // invoice date as Zulu ISO8601 @see https://en.wikipedia.org/wiki/ISO_8601
             new InvoiceTotalAmount($invoice->amount_due), // invoice total amount
             new InvoiceTaxAmount($invoice->amount - $invoice->amount_without_tax) // invoice tax amount
-            // TODO :: Support others tags
         ])->render();
 
         $invoice->qrCode=$qrCode;

@@ -19,6 +19,7 @@ return [
     'no_profit_loss'         => 'لا توجد أرباح ضائعة',
     'income_by_category'     => 'الدخل حسب الفئة',
     'expenses_by_category'   => 'المصروفات حسب الفئة',
+    'unpaid'                => 'غير مدفوعة الأجر',
     'account_balance'        => 'رصيد الحساب',
     'latest_income'          => 'آخر الإيرادات',
     'latest_expenses'        => 'آخر المصاريف',

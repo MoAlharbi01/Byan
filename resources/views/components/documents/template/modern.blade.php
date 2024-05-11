@@ -1,4 +1,4 @@
-<div class="print-template text-black">
+<div class="print-template">
     <div class="row">
         <div class="col-100">
             <div class="text text-dark">
@@ -297,7 +297,7 @@
     @endif
 
     <div class="row mt-7 clearfix">
-        <div class="col-60 float-left">
+        <div class="col-w-2 float-left">
             <div class="text p-index-right p-modern break-words">
                 @stack('notes_input_start')
                     @if ($document->notes)
@@ -311,7 +311,11 @@
             </div>
         </div>
 
-        <div class="col-40 float-right text-right">
+        <div class="col-w-4 float-left text-center">
+            <img src="{{$document->qrCode}}" alt="QR Code"/>
+        </div>
+
+        <div class="col-w-4 float-right text-right">
             @foreach ($document->totals_sorted as $total)
                 @if ($total->code != 'total')
                     @stack($total->code . '_total_tr_start')
