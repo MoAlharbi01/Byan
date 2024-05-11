@@ -140,6 +140,7 @@ return [
     'unpaid'                => 'غير مدفوع',
     'paid'                  => 'مدفوع',
     'overdue'               => 'متأخر',
+    'assign'                => 'تعيين',
     'partially'             => 'جزئي',
     'partially_paid'        => 'مدفوع جزئياً',
     'export'                => 'تصدير',
