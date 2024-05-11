@@ -71,12 +71,12 @@ return [
     ],
 
     'slider' => [
-        'create'            => ':user created this :type on :date',
-        'create_recurring'  => ':user created this recurring template on :date',
-        'send'              => ':user sent this :type on :date',
-        'schedule'          => 'Repeat every :interval :frequency since :date',
-        'children'          => ':count :type were created automatically',
-        'cancel'            => ':user cancelled this :type on :date',
+        'create'            => ':user أنشأ هذه :type في :date',
+        'create_recurring'  => ':user أنشأ هذا القالب المتكرر في :date',
+        'send'              => ':user ارسل :type في :date',
+        'schedule'          => 'تكرار كل :interval :frequency منذ :date',
+        'children'          => ':count :type تم إنشاؤها تلقائيا',
+        'cancel'            => ':user ألغى هذا :type في :date',
     ],
 
     'messages' => [
