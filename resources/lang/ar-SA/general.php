@@ -107,6 +107,7 @@ return [
     'code'                  => 'الرمز',
     'alias'                 => 'اسم مستعار',
     'download_pdf'          => 'تحميل ملف PDF',
+    'customize'             => 'تخصيص',
     'balance'               => 'الرصيد',
     'reference'             => 'مرجع',
     'attachment'            => 'المرفق',
