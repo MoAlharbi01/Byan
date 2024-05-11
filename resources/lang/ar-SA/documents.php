@@ -64,10 +64,10 @@ return [
     ],
 
     'form_description' => [
-        'companies'             => 'Change the address, logo, and other information for your company.',
-        'billing'               => 'Billing details appears in your document.',
-        'advanced'              => 'Select the category, add or edit the footer, and add attachments to your :type.',
-        'attachment'            => 'Download the files attached to this :type',
+        'companies'             => 'قم بتغيير العنوان والشعار والمعلومات الأخرى لشركتك.',
+        'billing'               => 'تظهر تفاصيل الفواتير في المستند الخاص بك.',
+        'advanced'              => 'حدد الفئة، وأضف التذييل أو قم بتحريره، وأضف المرفقات إلى ملفك :type.',
+        'attachment'            => 'قم بتحميل الملفات المرفقة بهذا :type',
     ],
 
     'slider' => [
