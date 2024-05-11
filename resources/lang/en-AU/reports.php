@@ -9,7 +9,7 @@ return [
     'this_quarter'                  => 'This Quarter',
     'previous_quarter'              => 'Previous Quarter',
     'last_12_months'                => 'Last 12 Months',
-    'profit_loss'                   => 'Profit & Loss',
+    'profit_loss'                   => '',
     'income_summary'                => 'Income Summary',
     'expense_summary'               => 'Expense Summary',
     'income_expense_summary'        => 'Income vs Expense',
