@@ -13,6 +13,13 @@ use App\Jobs\Document\DuplicateDocument;
 use App\Jobs\Document\UpdateDocument;
 use App\Models\Document\Document;
 use App\Traits\Documents;
+use Carbon\Carbon;
+use Salla\ZATCA\GenerateQrCode;
+use Salla\ZATCA\Tags\InvoiceDate;
+use Salla\ZATCA\Tags\InvoiceTaxAmount;
+use Salla\ZATCA\Tags\InvoiceTotalAmount;
+use Salla\ZATCA\Tags\Seller;
+use Salla\ZATCA\Tags\TaxNumber;
 
 class Bills extends Controller
 {
@@ -45,6 +52,16 @@ class Bills extends Controller
      */
     public function show(Document $bill)
     {
+        $qrCode = GenerateQrCode::fromArray([
+            new Seller(setting('company.name')), // seller name
+            new TaxNumber(setting('company.tax_number')), // seller tax number
+            new InvoiceDate($bill->issued_at->format('Y-m-d\TH:i:s\Z')), // bill date as Zulu ISO8601 @see https://en.wikipedia.org/wiki/ISO_8601
+            new InvoiceTotalAmount($bill->amount_due), // bill total amount
+            new InvoiceTaxAmount($bill->amount - $bill->amount_without_tax) // bill tax amount
+        ])->render();
+
+        $bill->qrCode=$qrCode;
+
         return view('purchases.bills.show', compact('bill'));
     }
 
