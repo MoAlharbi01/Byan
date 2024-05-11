@@ -242,6 +242,18 @@ return [
         'this_month' => 'هذا الشهر',
         'last_month' => 'الشهر الماضي',
         'this_year'         => 'هذا العام',
+        'week_ago'          => 'منذ أسبوع',
+        'last_months'       => 'الماضيه :number الاشهر',
+        'last_quarters'     => 'الماضيه :number الارباع',
+        'last_years'        => 'الماضيه :number السنوات',
+        'this_week'         => 'هذا الاسبوع',
+        'this_quarter'      => 'هذا الربع',
+        'year_to_date'      => 'منذ بداية العام حتى اليوم',
+        'previous_week'     => 'الأسبوع السابق',
+        'previous_month'    => 'الشهر الماضى',
+        'previous_quarter'  => 'الربع السابق',
+        'previous_year'     => 'العام الماضي',
+        'custom'            => 'خصص',
     ],
 
     'empty' => [
