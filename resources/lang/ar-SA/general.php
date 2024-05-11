@@ -209,6 +209,16 @@ return [
         ],
         'add_new'           => 'إضافة :field جديد',
         'no_file_selected'  => 'لم يتم اختيار أي ملف...',
+        'add_new'           => 'إضافة :field جديد',
+        'no_file_selected'  => 'لم يتم اختيار أي ملف...',
+        'add'               => 'أضف :field',
+        'add_an'            => 'إضافة :field',
+        'edit'              => 'تعديل :field',
+        'contact_edit'      => 'تعديل :contact_name :field',
+        'drop_file'         => 'قم بوضع الملفات هنا للتحميل',
+        'choose'            => 'Choose :field',
+        'choose_different'  => 'اختر مختلف :field',
+        'choose_file'       => 'اختر ملف',
     ],
 
     'placeholder' => [
