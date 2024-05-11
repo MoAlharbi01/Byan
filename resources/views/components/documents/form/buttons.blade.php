@@ -1,6 +1,6 @@
 <x-form.section>
     <x-slot name="foot">
-        <div class="flex justify-end">
+        <div class="flex justify-end text-black">
             <x-form.buttons cancel-route="{{ $cancelRoute }}" save-loading="! send_to && form.loading" />
 
             @if (! $hideSendTo)
